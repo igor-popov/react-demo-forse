@@ -1,16 +1,17 @@
-import { ProductDto } from '../dto/product';
+import { ProductDto, ProductNameDto } from '../dto/product';
 
 class ProductApi {
   private products: ProductDto[] = [
     {id: 'AAA123', name: 'Melk', weight: 1},
-    {id: 'AAA126', name: 'Brød', weight: 0.6}
+    {id: 'AAA126', name: 'Brød', weight: 0.6},
+    {id: 'AAA128', name: 'Ketchup', weight: 1.5}
   ];
 
-  public getProducts(): Promise<ProductDto[]> {
+  public getProducts(): Promise<ProductNameDto[]> {
     return new Promise((resolve, reject) => {
       window.setInterval(
         () => {
-          resolve(this.products);
+          resolve(this.products.map(p => ({name: p.name, id: p.id})));
         },
         1000);
     });

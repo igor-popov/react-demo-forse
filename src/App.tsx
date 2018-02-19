@@ -8,7 +8,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <ProductsPage title="Ikke så mye"/>
+        <ProductsPage title="Produkter"/>
       </div>
     );
   }

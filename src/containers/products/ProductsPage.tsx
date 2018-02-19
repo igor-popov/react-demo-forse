@@ -1,14 +1,15 @@
 import * as React from 'react';
-import { Product } from '../../domain/product';
-import { ProductDto } from '../../dto/product';
+import { ProductName } from '../../domain/product';
+import { ProductNameDto } from '../../dto/product';
 import { productApi } from '../../api/productApi';
+import ProductListItem from '../../components/products/productListItem';
 
 interface ProductsPageProps {
   title: string;
 }
 
 interface ProductsPageState {
-  products: Product[];
+  products: ProductName[];
 }
 
 class ProductsPage extends React.Component<ProductsPageProps, ProductsPageState> {
@@ -21,8 +22,8 @@ class ProductsPage extends React.Component<ProductsPageProps, ProductsPageState>
     public componentWillMount() {
         if (!this.state.products.length) {
             productApi.getProducts().then(dtos => {
-              const products =  dtos.map((dto: ProductDto) =>
-                ({id: dto.id, name: dto.name, weight: dto.weight}));
+              const products =  dtos.map((dto: ProductNameDto) =>
+                ({id: dto.id, name: dto.name}));
               this.setState({ products: products });
         });
       }
@@ -31,9 +32,15 @@ class ProductsPage extends React.Component<ProductsPageProps, ProductsPageState>
     render(): React.ReactNode {
       return (
         <div>
-          Min status er:
-          <p>{this.props.title}</p>
+          <h1>{this.props.title}</h1>
+          {this.state.products.map(p => this.renderProduct(p))}
         </div>
+      );
+    }
+
+    renderProduct(product: ProductName) {
+      return (
+        <ProductListItem product={product}/>
       );
     }
 }
