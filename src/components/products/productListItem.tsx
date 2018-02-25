@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { ProductName } from '../../domain/product';
+import { Link } from 'react-router-dom';
 
 interface ProductsListItemProps {
   product: ProductName;
@@ -16,7 +17,7 @@ class ProductsListItem extends React.Component<ProductsListItemProps, ProductsLi
 
       return (
         <div style={styles} className={'product-list-item'}>
-          <h2>{this.props.product.name}</h2>
+          <h2><Link to={'/produkter/' + this.props.product.id}>{this.props.product.name}</Link></h2>
         </div>
       );
     }

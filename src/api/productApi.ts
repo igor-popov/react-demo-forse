@@ -17,6 +17,20 @@ class ProductApi {
     });
   }
 
+  public getProduct(id: string): Promise<ProductDto> {
+    return new Promise((resolve, reject) => {
+      window.setInterval(
+        () => {
+          const product: ProductDto|undefined = this.products.filter(p => p.id === id).pop();
+          if (!product) {
+            reject(new Error(`Produkt finnes ikke for id ${id}`));
+          }
+          resolve(product);
+        },
+        1000);
+    });
+  }
+
   public upsertProduct(product: ProductDto): Promise<void> {
     return new Promise((resolve, reject) => {
       window.setInterval(

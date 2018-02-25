@@ -20,13 +20,11 @@ class ProductsPage extends React.Component<ProductsPageProps, ProductsPageState>
     }
 
     public componentWillMount() {
-        if (!this.state.products.length) {
-            productApi.getProducts().then(dtos => {
-              const products =  dtos.map((dto: ProductNameDto) =>
-                ({id: dto.id, name: dto.name}));
-              this.setState({ products: products });
-        });
-      }
+      productApi.getProducts().then(dtos => {
+        const products =  dtos.map((dto: ProductNameDto) =>
+          ({id: dto.id, name: dto.name}));
+        this.setState({ products: products });
+      });
     }
 
     render(): React.ReactNode {
@@ -40,7 +38,7 @@ class ProductsPage extends React.Component<ProductsPageProps, ProductsPageState>
 
     renderProduct(product: ProductName) {
       return (
-        <ProductListItem product={product}/>
+        <ProductListItem product={product} key={product.id}/>
       );
     }
 }
