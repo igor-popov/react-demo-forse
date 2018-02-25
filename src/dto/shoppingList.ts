@@ -1,12 +1,12 @@
 import { ProductNameDto } from './product';
 
 export interface ShoppingEntryDto {
-  products: ProductNameDto;
+  product: ProductNameDto;
   amount: number;
 }
 
 export interface ShoppingListDto {
   id: string;
   name: string;
-  entries: ProductNameDto[];
+  entries: ShoppingEntryDto[];
 }

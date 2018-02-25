@@ -17,6 +17,16 @@ class ProductApi {
     });
   }
 
+  public getProductsWithWeight(): Promise<ProductDto[]> {
+    return new Promise((resolve, reject) => {
+      window.setInterval(
+        () => {
+          resolve(this.products.map(p => ({name: p.name, id: p.id, weight: p.weight})));
+        },
+        1000);
+    });
+  }
+
   public getProduct(id: string): Promise<ProductDto> {
     return new Promise((resolve, reject) => {
       window.setInterval(

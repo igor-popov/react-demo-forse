@@ -13,6 +13,17 @@ class ShoppingListApi {
     });
   }
 
+  public saveShoppingList(dto: ShoppingListDto): Promise<void> {
+    return new Promise((resolve, reject) => {
+      window.setInterval(
+        () => {
+          this.shoppingList = dto;
+          resolve();
+        },
+        1000);
+    });
+  }
+
 }
 
 export const shoppingListApi = new ShoppingListApi();
