@@ -13,7 +13,7 @@ export class ShoppingListProductsControl extends
     render(): React.ReactNode {
 
       return (
-        <table>
+        <table className='table'>
           <thead>
             <tr>
               <th>Produkt</th>

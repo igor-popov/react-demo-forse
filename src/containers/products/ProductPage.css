@@ -1,0 +1,24 @@
+div.product-page {
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  width: 20rem;
+}
+
+div.product-page div.content {
+   text-align: left;
+  /*  width: 20rem; */
+}
+
+div.product-page input {
+  width: 10rem;
+  display: inline-block;
+  margin: 1rem;
+  text-align: left;
+}
+
+div.product-page span {
+  margin: 1rem;
+  text-align: left;
+  font-weight: bolder;
+}

@@ -13,7 +13,7 @@ export class SaveButton extends React.Component<SaveButtonProperties, any> {
 
   public render() {
       return (
-            <button onClick={this._onClick}>
+            <button onClick={this._onClick} className='btn btn-primary'>
                 Lagre
              </button>
            );

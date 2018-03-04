@@ -1,0 +1,19 @@
+.shopping-list table.table {
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  width: auto;
+}
+
+.shopping-list {
+  width: 98%;
+  margin: 1%;
+}
+
+.shopping-list td {
+  margin: 0.5rem;
+}
+
+.shopping-list tr {
+  border-bottom: 0.5rem;
+}

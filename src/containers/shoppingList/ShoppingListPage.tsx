@@ -12,6 +12,8 @@ import { ShoppingListProductsControl } from '../../components/shoppingList/shopp
 import { Wait } from '../../components/shared/wait';
 import { SaveButton } from '../../components/shared/saveButton';
 
+import './ShoppingListPage.css';
+
 interface ShoppingListPageProps {
 }
 
@@ -92,14 +94,14 @@ class ShoppingListPage extends React.Component<ShoppingListPageProps, ShoppingLi
         );
 
       return (
-        <div>
+        <div className='shopping-list'>
           <h1>{shoppingList.name}</h1>
           <ShoppingListProductsControl>
             {productEntries.map(e => this.renderProductEntry(e))}
           </ShoppingListProductsControl>
           <p>Total weight: {totalWeight}</p>
           <SaveButton onClick={this.onSaveMethod}/>
-          {this.state.isSaved ? <p>Saved!</p> : undefined}
+          {this.state.isSaved ? <div className='alert alert-success' role='alert'>Saved!</div> : undefined}
         </div>
       );
     }

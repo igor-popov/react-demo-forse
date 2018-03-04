@@ -3,6 +3,7 @@ import { ProductName } from '../../domain/product';
 import { ProductNameDto } from '../../dto/product';
 import { productApi } from '../../api/productApi';
 import ProductListItem from '../../components/products/productListItem';
+import './ProductsPage.css';
 
 interface ProductsPageProps {
   title: string;
@@ -29,7 +30,7 @@ class ProductsPage extends React.Component<ProductsPageProps, ProductsPageState>
 
     render(): React.ReactNode {
       return (
-        <div>
+        <div className='products-page'>
           <h1>{this.props.title}</h1>
           {this.state.products.map(p => this.renderProduct(p))}
         </div>

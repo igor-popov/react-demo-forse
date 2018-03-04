@@ -9,6 +9,8 @@ import { TextEditor } from '../../components/shared/textEditor';
 import { Property } from '../../components/shared/property';
 import { SaveButton } from '../../components/shared/saveButton';
 
+import './ProductPage.css';
+
 interface ProductPageProps {
     match: any;
 }
@@ -56,26 +58,29 @@ class ProductPage extends React.Component<ProductPageProps, ProductPageState> {
       const product = this.state.product;
 
       return (
-        <div>
+        <div className='product-page'>
           <h1>{product.name}</h1>
-          {this.state.isSaved ? <p>Saved!</p> : undefined}
-          <Property text='Navn'>
-            <TextEditor
-              value={product.name}
-              placeholder='produktnavn'
-              onChange={this.propertyChangedGeneratorMethod('name')}
-              focus={true}
-            />
-          </Property>
-          <Property text='Vekt'>
-            <NumberEditor
-              value={product.weight}
-              placeholder='produktvekt'
-              onChange={this.propertyChangedGeneratorMethod('weight')}
-              units='kg'
-            />
-          </Property>
-          <SaveButton onClick={this.onSaveMethod}/>
+          {this.state.isSaved ? <div className='alert alert-success' role='alert'>Saved!</div> : undefined}
+          <div className='content'>
+            <Property text='Navn'>
+              <TextEditor
+                value={product.name}
+                placeholder='produktnavn'
+                onChange={this.propertyChangedGeneratorMethod('name')}
+                focus={true}
+              />
+            </Property>
+            <Property text='Vekt'>
+              <NumberEditor
+                value={product.weight}
+                placeholder='produktvekt'
+                onChange={this.propertyChangedGeneratorMethod('weight')}
+                units='kg'
+              />
+            </Property>
+          </div>
+            <SaveButton onClick={this.onSaveMethod}/>
+
         </div>
       );
     }
