@@ -8,6 +8,7 @@ import ProductPage from './containers/products/ProductPage';
 import ShoppingListPage from './containers/shoppingList/ShoppingListPage';
 
 class App extends React.Component {
+
   render() {
     return (
       <Router>
