@@ -8,6 +8,7 @@ export interface ShoppingListState {
 export interface ProductsState {
   all?: Product[];
   current?: Product;
+  errorMessage?: string;
 }
 
 export interface AppState {

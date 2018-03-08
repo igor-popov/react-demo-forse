@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { ShoppingList, ShoppingEntry } from '../../domain/shoppingList';
 import { ShoppingListDto, ShoppingEntryDto } from '../../dto/shoppingList';
 import { Product } from '../../domain/product';
@@ -11,6 +12,8 @@ import { ShoppingListProductsControl } from '../../components/shoppingList/shopp
 
 import { Wait } from '../../components/shared/wait';
 import { SaveButton } from '../../components/shared/saveButton';
+
+import { AppState } from '../../domain/state';
 
 import './ShoppingListPage.css';
 
@@ -109,6 +112,7 @@ class ShoppingListPage extends React.Component<ShoppingListPageProps, ShoppingLi
     private renderProductEntry(productEntry: ProductEntry) {
       return (
         <ShoppingListProductControl
+          key={productEntry.product.id}
           onAmountChanged={this.onAmountChangedMethod}
           entry={productEntry.shoppingEntry}
         />
@@ -177,4 +181,17 @@ class ShoppingListPage extends React.Component<ShoppingListPageProps, ShoppingLi
     }
 }
 
-export default ShoppingListPage;
+function mapStateToProps(state: AppState) {
+    return {
+    };
+}
+
+function mapDispatchToProps(dispatch: Function) {
+    return {
+    };
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ShoppingListPage);

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { Product } from '../../domain/product';
 import { ProductDto } from '../../dto/product';
 import { productApi } from '../../api/productApi';
@@ -8,6 +9,9 @@ import { NumberEditor } from '../../components/shared/numberEditor';
 import { TextEditor } from '../../components/shared/textEditor';
 import { Property } from '../../components/shared/property';
 import { SaveButton } from '../../components/shared/saveButton';
+
+import { AppState } from '../../domain/state';
+// import * as constants from './constants';
 
 import './ProductPage.css';
 
@@ -116,4 +120,17 @@ class ProductPage extends React.Component<ProductPageProps, ProductPageState> {
     }
 }
 
-export default ProductPage;
+function mapStateToProps(state: AppState) {
+    return {
+    };
+}
+
+function mapDispatchToProps(dispatch: Function) {
+    return {
+    };
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ProductPage);
