@@ -22,8 +22,8 @@ function* loadAllProducts() {
   }
 }
 
-function* main() {
+function* getAllProducts() {
   yield takeLatest(constants.ALL_PRODUCTS_REQUEST_START, loadAllProducts);
 }
 
-export default main;
+export default getAllProducts;

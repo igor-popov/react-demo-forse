@@ -1,6 +1,7 @@
 import { combineReducers, Reducer } from 'redux';
 import { AppState } from '../domain/state';
 import products from './products/reducers';
+import product from './product/reducers';
 import shoppingList from './shoppingList/reducers';
 
 /*
@@ -14,6 +15,7 @@ function dummy(state: DummyState = {}, action: any): DummyState {
 
 const rootReducer: Reducer<AppState> = combineReducers({
   products,
+  product,
   shoppingList
 });
 

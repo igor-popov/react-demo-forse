@@ -12,7 +12,8 @@ import { Provider } from 'react-redux';
 import { AppState } from './domain/state';
 import configureStore from './containers/store';
 
-const store: Store<AppState> = configureStore({ products: {}, shoppingList: {}});
+const initialState = { products: {}, shoppingList: {}, product: {}};
+const store: Store<AppState> = configureStore(initialState);
 
 ReactDOM.render(
   <Provider store={store}>

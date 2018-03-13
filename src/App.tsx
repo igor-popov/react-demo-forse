@@ -4,7 +4,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/scss/bootstrap.scss';
 import ProductsPage from './containers/products/ProductsPage';
-import ProductPage from './containers/products/ProductPage';
+import ProductPage from './containers/product/ProductPage';
 import ShoppingListPage from './containers/shoppingList/ShoppingListPage';
 
 class App extends React.Component {
